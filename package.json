@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "dependencies": {
+    "he": "^1.2.0",
+    "nanoid": "^4.0.2",
+    "react": "18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "18.2.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-router-dom": "6.4.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "*",
+    "vite": "latest"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
