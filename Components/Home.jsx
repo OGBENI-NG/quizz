@@ -23,8 +23,6 @@ export default function Home() {
     }, 1500)
   }
 
-
-
   async function getQuestions() {
     const res = await fetch('https://opentdb.com/api.php?amount=5&category=18&difficulty=medium')
     const data = await res.json()
@@ -55,10 +53,10 @@ export default function Home() {
   function holdAnswer(id, answer) {
     const decodedAnswer = he.decode(answer);
     setQuestions(prevQuestions =>
-      prevQuestions.map(question =>
-        question.id === id ?
-        { ...question, selectedAnswer: decodedAnswer }
-        : question
+      prevQuestions.map(q =>
+        q.id === id ?
+        { ...q, selectedAnswer: decodedAnswer }
+        : q
       )
     )
   }
@@ -67,7 +65,7 @@ export default function Home() {
   // Check user's answers and update score
   // Handler function for checking the quiz answers
   function checkAnswer() {
-    const newScore = questions.filter(question => question.selectedAnswer === question.correct_answer).length
+    const newScore = questions.filter(q => q.selectedAnswer === q.correct_answer).length
     setScore(newScore)
   }
 
@@ -79,16 +77,7 @@ export default function Home() {
     }, 1000)
   }
 
-  const isLoading = <Circles
-    height="80"
-    width="80"
-    color="#293264"
-    ariaLabel="circles-loading"
-    wrapperStyle={{}}
-    wrapperClass=""
-    visible={true}
-  />
-
+  const isLoading = <Circles />
   // Render the quiz or the intro section based on quizPage state
   return (
     <main>
